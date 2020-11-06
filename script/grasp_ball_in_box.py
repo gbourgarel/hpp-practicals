@@ -60,7 +60,7 @@ ballInGripper = [0, .137, 0, 0.5, 0.5, -0.5, 0.5]
 ps.createTransformationConstraint('grasp', gripperName, ballName,
                                   ballInGripper, 6*[True,])
 
-ballUnderGripper = [0, .137, -.2, 0.5, 0.5, -0.5, 0.5]
+ballUnderGripper = [0, .137, .2, 0.5, 0.5, -0.5, 0.5]
 ps.createTransformationConstraint('gripper-above-ball', gripperName, ballName,
                                   ballUnderGripper, 6*[True,])
 ps.setConstantRightHandSide('gripper-above-ball', True)
@@ -89,7 +89,9 @@ graph.addConstraints(edge='put-ball-down', constraints=Constraints(numConstraint
 
 
 
-
+v = vf.createViewer()
+res, q, err = graph.applyNodeConstraints('gripper-above-ball', q2)
+v(q)
 
 
 
