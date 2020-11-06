@@ -100,11 +100,11 @@ res, q_goal, error = graph.applyNodeConstraints ('placement', q2)
 ps.setInitialConfig (q_init)
 ps.addGoalConfig (q_goal)
 
-# v = vf.createViewer ()
 # pp = PathPlayer (v)
 # v (q1)
 
 ## Uncomment to solve and see the solution
 # ps.solve()
+# v = vf.createViewer ()
 # pp=PathPlayer(v)
 # pp(0)
