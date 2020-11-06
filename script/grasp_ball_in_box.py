@@ -67,7 +67,7 @@ ps.setConstantRightHandSide('gripper-above-ball', True)
 
 ballInGripper = [0, .137, 0, 0.5, 0.5, -0.5, 0.5]
 ps.createTransformationConstraint('ball-in-gripper', gripperName, ballName,
-                                  ballUnderGripper, 6*[True,])
+                                  ballInGripper, 6*[True,])
 #ps.setConstantRightHandSide('ball-in-gripper', True)
 
 ps.createTransformationConstraint('vertical-free', '', gripperName,
