@@ -60,9 +60,8 @@ ballInGripper = [0, .137, 0, 0.5, 0.5, -0.5, 0.5]
 ps.createTransformationConstraint('grasp', gripperName, ballName,
                                    ballInGripper, 6*[True,])
 
-ballUnderGripper = [0, .2, 0, 0, 0, 0, 1]
-ps.createTransformationConstraint('gripper-above-ball', gripperName, ballName,
-                                  ballUnderGripper,
+ps.createTransformationConstraint('gripper-vertical', '', gripperName,
+                                  [0,0,1,0,0,0,1],
                                   6*[True,])
 
 
@@ -70,7 +69,7 @@ graph.addConstraints(node='placement', constraints=Constraints(numConstraints=['
 graph.addConstraints(node='grasp', constraints=Constraints(numConstraints=['grasp']))
 graph.addConstraints(edge='transit', constraints=Constraints(numConstraints=['placement/complement']))
 graph.addConstraints(edge='grasp-ball', constraints=Constraints(numConstraints=['placement/complement']))
-graph.addConstraints(node='gripper-above-ball', constraints=Constraints(numConstraints=['placement', 'gripper-above-ball']))
+graph.addConstraints(node='gripper-above-ball', constraints=Constraints(numConstraints=['gripper-vertical']))
 #graph.addConstraints(node='ball-above-ground', constraints=Constraints(numConstraints=['aboveGround']))
 
 
