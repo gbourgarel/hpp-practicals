@@ -1,4 +1,4 @@
-from grasp_ball import q_init, q_goal, robot, ps, graph, pp
+from grasp_ball import q_init, q_goal, robot, ps, graph
 
 success = False
 trial = 0
