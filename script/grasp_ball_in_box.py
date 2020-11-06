@@ -89,9 +89,6 @@ graph.addConstraints(edge='put-ball-down', constraints=Constraints(numConstraint
 
 
 
-v = vf.createViewer()
-res, q, err = graph.applyNodeConstraints('gripper-above-ball', q2)
-v(q)
 
 
 
@@ -111,3 +108,8 @@ ps.addGoalConfig (q_goal)
 # v = vf.createViewer ()
 # pp = PathPlayer (v)
 # v (q1)
+
+
+v = vf.createViewer()
+res, q, err = graph.applyNodeConstraints('gripper-above-ball', q2)
+v(q)
