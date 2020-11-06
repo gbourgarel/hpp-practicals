@@ -36,17 +36,6 @@ graph.createEdge('ball-above-ground', 'grasp', 'take-ball-away', 1, 'grasp')
 graph.createEdge('grasp', 'ball-above-ground', 'approach-ground', 1, 'grasp')
 graph.createEdge('grasp', 'grasp', 'transfer', 1, 'grasp')
 
-# graph.createEdge('placement', 'placement', 'transit', 1, 'placement')
-# graph.createEdge('placement', 'gripper-above-ball', 'approach-ball', 1, 'placement')
-# graph.createEdge('gripper-above-ball', 'placement', 'move-gripper-away', 1, 'placement')
-# graph.createEdge('gripper-above-ball', 'grasp-placement', 'grasp-ball', 1, 'gripper-above-ball')
-# graph.createEdge('grasp-placement', 'gripper-above-ball', 'move-gripper-up', 1, 'grasp-placement')
-# graph.createEdge('grasp-placement', 'ball-above-ground', 'take-ball-up', 1, 'grasp-placement')
-# graph.createEdge('ball-above-ground', 'grasp-placement', 'put-ball-down', 1, 'ball-above-ground')
-# graph.createEdge('ball-above-ground', 'grasp', 'take-ball-away', 1, 'grasp')
-# graph.createEdge('grasp', 'ball-above-ground', 'approach-ground', 1, 'grasp')
-# graph.createEdge('grasp', 'grasp', 'transfer', 1, 'grasp')
-
 ps.createTransformationConstraint('placement', '', ballName,
                                   [0,0,0.025,0, 0, 0, 1],
                                   [False, False, True, True, True, False])
@@ -93,14 +82,9 @@ graph.addConstraints(edge='take-ball-away', constraints=Constraints())
 graph.addConstraints(edge='approach-ground', constraints=Constraints())
 graph.addConstraints(node='grasp-placement', constraints=Constraints(numConstraints=['placement', 'ball-in-gripper']))
 graph.addConstraints(edge='move-gripper-up', constraints=Constraints(numConstraints=['vertical-free']))
-graph.addConstraints(edge='grasp-ball', constraints=Constraints(numConstraints=['vertical-free', 'placement/complement'])) # TODO
+graph.addConstraints(edge='grasp-ball', constraints=Constraints(numConstraints=['vertical-free', 'placement/complement']))
 graph.addConstraints(edge='take-ball-up', constraints=Constraints(numConstraints=['vertical-free']))
 graph.addConstraints(edge='put-ball-down', constraints=Constraints(numConstraints=['vertical-free']))
-
-
-
-
-
 
 
 ps.selectPathValidation ("Discretized", 0.01)
@@ -120,7 +104,7 @@ ps.addGoalConfig (q_goal)
 # pp = PathPlayer (v)
 # v (q1)
 
-
-v = vf.createViewer()
-res, q, err = graph.applyNodeConstraints('gripper-above-ball', q2)
-v(q)
+## Uncomment to solve and see the solution
+# ps.solve()
+# pp=PathPlayer(v)
+# pp(0)
