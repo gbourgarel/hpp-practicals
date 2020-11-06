@@ -69,6 +69,8 @@ graph.addConstraints(node='placement', constraints=Constraints(numConstraints=['
 graph.addConstraints(node='grasp', constraints=Constraints(numConstraints=['grasp']))
 graph.addConstraints(edge='transit', constraints=Constraints(numConstraints=['placement/complement']))
 graph.addConstraints(edge='grasp-ball', constraints=Constraints(numConstraints=['placement/complement']))
+graph.addConstraints(edge='gripper-above-ball', constraints=Constraints(numConstraints=['aboveGround']))
+graph.addConstraints(edge='ball-above-ground', constraints=Constraints(numConstraints=['aboveGround']))
 
 
 
