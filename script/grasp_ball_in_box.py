@@ -85,7 +85,7 @@ graph.addConstraints(edge='move-gripper-away', constraints=Constraints())
 graph.addConstraints(edge='approach-ball', constraints=Constraints())
 graph.addConstraints(edge='take-ball-away', constraints=Constraints())
 graph.addConstraints(edge='approach-ground', constraints=Constraints())
-graph.addConstraints(node='grasp-placement', constraints=Constraints(numConstraints=['ball-in-gripper']))
+graph.addConstraints(node='grasp-placement', constraints=Constraints(numConstraints=['placement', 'ball-in-gripper']))
 graph.addConstraints(edge='move-gripper-up', constraints=Constraints(numConstraints=['vertical-free']))
 graph.addConstraints(edge='grasp-ball', constraints=Constraints(numConstraints=['vertical-free', 'placement/complement'])) # TODO
 graph.addConstraints(edge='take-ball-up', constraints=Constraints(numConstraints=['vertical-free']))
