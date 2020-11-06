@@ -61,7 +61,7 @@ ps.createTransformationConstraint('grasp', gripperName, ballName,
                                    ballInGripper, 6*[True,])
 
 ballUnderGripper = [0, .137, 1, 0.5, 0.5, -0.5, 0.5]
-ps.createTransformationConstraint('gripper-above-ball', gripperName, ballName
+ps.createTransformationConstraint('gripper-above-ball', gripperName, ballName,
                                   ballUnderGripper,
                                   6*[True,])
 
