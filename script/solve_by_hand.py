@@ -1,4 +1,4 @@
-from grasp_ball import q_init, q_goal, robot, ps, graph, r, pp
+from grasp_ball import q_init, q_goal, robot, ps, graph, pp
 
 success = False
 trial = 0
@@ -14,5 +14,3 @@ while not success:
     paths.append (pid)
     if not res: continue
     success = True
-
-
