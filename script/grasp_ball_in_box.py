@@ -62,7 +62,7 @@ ps.createTransformationConstraint('grasp', gripperName, ballName,
 
 ps.createTransformationConstraint('gripper-vertical', '', gripperName,
                                   [0,0,.1,0,0,0,1],
-                                  [False, False, True, False, False, True])
+                                  [False, False, True, True, True, True])
 
 
 graph.addConstraints(node='placement', constraints=Constraints(numConstraints=['placement'],))
