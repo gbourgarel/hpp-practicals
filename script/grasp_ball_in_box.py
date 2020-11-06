@@ -60,18 +60,26 @@ ballInGripper = [0, .137, 0, 0.5, 0.5, -0.5, 0.5]
 ps.createTransformationConstraint('grasp', gripperName, ballName,
                                    ballInGripper, 6*[True,])
 
-ps.createTransformationConstraint('gripper-vertical', '', gripperName,
-                                  [0,0,.2,0,2**.5/2,-2**.5/2,0],
-                                  [False, False, True, True, True, True])
+ps.createTransformationConstraint('vertical-free', '', gripperName,
+                                  [0,0,.2,0,0,0,1],
+                                  [True, True, False, False, False, False])
 
 
 graph.addConstraints(node='placement', constraints=Constraints(numConstraints=['placement'],))
 graph.addConstraints(node='grasp', constraints=Constraints(numConstraints=['grasp']))
 graph.addConstraints(edge='transit', constraints=Constraints(numConstraints=['placement/complement']))
-graph.addConstraints(edge='grasp-ball', constraints=Constraints(numConstraints=['placement/complement']))
-graph.addConstraints(node='gripper-above-ball', constraints=Constraints(numConstraints=['gripper-vertical']))
-#graph.addConstraints(node='ball-above-ground', constraints=Constraints(numConstraints=['aboveGround']))
-
+graph.addConstraints(edge='transfer', constraints=Constraints())
+graph.addConstraints(node='gripper-above-ball', constraints=Constraints())
+graph.addConstraints(node='ball-above-ground', constraints=Constraints())
+graph.addConstraints(edge='move-gripper-away', constraints=Constraints())
+graph.addConstraints(edge='approach-ball', constraints=Constraints())
+graph.addConstraints(edge='take-ball-away', constraints=Constraints())
+graph.addConstraints(edge='approach-ground', constraints=Constraints())
+graph.addConstraints(node='grasp-placement', constraints=Constraints())
+graph.addConstraints(edge='move-gripper-up', constraints=Constraints(numConstraints=['vertical-free']))
+graph.addConstraints(edge='grasp-ball', constraints=Constraints(numConstraints=['vertical', 'placement/complement'])) # TODO
+graph.addConstraints(edge='take-ball-up', constraints=Constraints(numConstraints=['vertical-free']))
+graph.addConstraints(edge='put-ball-down', constraints=Constraints(numConstraints=['vertical-free']))
 
 
 
