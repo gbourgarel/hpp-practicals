@@ -16,7 +16,7 @@ def generatePath(q_from, edgeName):
         return pid, q1
 
 paths = []
-pid, q1 = generatePath(q_init, 'approach_ball')
+pid, q1 = generatePath(q_init, 'approach-ball')
 paths.append(pid)
 
 
