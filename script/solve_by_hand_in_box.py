@@ -18,7 +18,7 @@ def generatePath(q_from, edgeName, q=None):
         return pid, q1
 
 def generatePathTwoEdges(q_from, edgeName1, edgeName2, q):
-    print(step, edgeName1, edgeName2)
+    print('step', edgeName1, edgeName2)
     trial = 0
     while True:
         if trial % 10 == 0:
