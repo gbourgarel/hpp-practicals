@@ -49,7 +49,7 @@ ballInGripper = [0, .137, 0, 0.5, 0.5, -0.5, 0.5]
 ps.createTransformationConstraint('grasp', gripperName, ballName,
                                   ballInGripper, 6*[True,])
 
-ballUnderGripper = [0, .137+.1, 0, 0.5, 0.5, -0.5, 0.5]
+ballUnderGripper = [0, .137+.2, 0, 0.5, 0.5, -0.5, 0.5]
 ps.createTransformationConstraint('gripper-above-ball', gripperName, ballName,
                                   ballUnderGripper, 6*[True,])
 ps.setConstantRightHandSide('gripper-above-ball', True)
@@ -60,7 +60,7 @@ ps.createTransformationConstraint('ball-in-gripper', gripperName, ballName,
 #ps.setConstantRightHandSide('ball-in-gripper', True)
 
 ps.createTransformationConstraint('ball-above-ground', '', ballName,
-                                  [0,0,.1,0, 0, 0, 1],
+                                  [0,0,.2,0, 0, 0, 1],
                                   [False, False, True, True, True, False])
 ps.setConstantRightHandSide('ball-above-ground', True)
 
