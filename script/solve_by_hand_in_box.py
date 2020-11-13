@@ -18,33 +18,22 @@ def generatePath(q_from, edgeName, q=None):
 def generatePathTwoEdges(q_from, edgeName1, edgeName2, q):
     trial = 0
     while True:
-        print('trial {0}'.format(trial))
+        if trial % 10 == 0:
+            print('trial {0}'.format(trial))
         trial += 1
         q_ = robot.shootRandomConfig()
         res, q1, err = graph.generateTargetConfig(edgeName1, q_from, q_)
-        if not res:
-            print(1)
-            continue
+        if not res: continue
         res, msg = robot.isConfigValid(q1)
-        if not res:
-            print(2)
-            continue
+        if not res: continue
         res, pid1, msg = ps.directPath(q_from, q1, True)
-        if not res:
-            print(3)
-            continue
+        if not res: continue
         res, q2, err = graph.generateTargetConfig(edgeName2, q1, q)
-        if not res:
-            print(4)
-            continue
+        if not res: continue
         res, msg = robot.isConfigValid(q2)
-        if not res:
-            print(5)
-            continue
+        if not res: continue
         res, pid2, msg = ps.directPath(q1, q2, True)
-        if not res:
-            print(6)
-            continue
+        if not res: continue
         return pid1, pid2, q1, q2
 
 v=vf.createViewer()
@@ -65,24 +54,19 @@ paths.append(pid)
 
 pid1, pid2, q4, q5 = generatePathTwoEdges(q3, 'take-ball-away', 'approach-ground', q_goal)
 pp(pid1);pp(pid2)
-paths.append(pid1, paths.append(pid2))
+paths.append(pid1), paths.append(pid2)
 
-pid, q4 = generatePath(q3, 'take-ball-away')
+pid, q6 = generatePath(q5, 'put-ball-down')
 pp(pid)
 paths.append(pid)
 
-pid, q5 = generatePath(q4, 'transfer', q_goal)
+pid, q7 = generatePath(q6, 'move-gripper-up')
 pp(pid)
 paths.append(pid)
 
-pid, q6 = generatePath(q5, 'approach-ground')
+pid, q8 = generatePath(q7, 'move-gripper-away')
 pp(pid)
 paths.append(pid)
-
-pid, q7 = generatePath(q6, 'put-ball-down')
-pp(pid)
-paths.append(pid)
-
 
 # success = False
 # trial = 0
