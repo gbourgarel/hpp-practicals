@@ -7,6 +7,7 @@ def generatePath(q_from, edgeName, q=None):
         print('trial {0}'.format(trial))
         trial += 1
         if q==None:
+            print('ok')
             q = robot.shootRandomConfig()
         res, q1, err = graph.generateTargetConfig(edgeName, q_from, q)
         if not res: continue
