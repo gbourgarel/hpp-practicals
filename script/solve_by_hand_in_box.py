@@ -1,12 +1,13 @@
 from grasp_ball_in_box import q_init, q_goal, robot, ps, graph
 from manipulation import vf, PathPlayer
 
-def generatePath(q_from, edgeName):
+def generatePath(q_from, edgeName, q=None):
     trial = 0
     while True:
         print('trial {0}'.format(trial))
         trial += 1
-        q = robot.shootRandomConfig()
+        if q==None:
+            q = robot.shootRandomConfig()
         res, q1, err = graph.generateTargetConfig(edgeName, q_from, q)
         if not res: continue
         res, msg = robot.isConfigValid(q1)
@@ -35,7 +36,7 @@ pid, q4 = generatePath(q3, 'take-ball-away')
 pp(pid)
 paths.append(pid)
 
-pid, q5 = generatePath(q4, 'transfer')
+pid, q5 = generatePath(q4, 'transfer', q_goal)
 pp(pid)
 paths.append(pid)
 
