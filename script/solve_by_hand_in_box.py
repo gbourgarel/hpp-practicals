@@ -47,11 +47,11 @@ pid, q1 = generatePath(q_init, 'approach-ball')
 # pp(pid)
 paths.append(pid)
 
-pid, q2 = generatePath(q1, 'grasp-ball')
+pid, q2 = generatePath(q1, 'grasp-ball', q1)
 # pp(pid)
 paths.append(pid)
 
-pid, q3 = generatePath(q2, 'take-ball-up')
+pid, q3 = generatePath(q2, 'take-ball-up', q2)
 # pp(pid)
 paths.append(pid)
 
