@@ -63,7 +63,7 @@ pid, q3 = generatePath(q2, 'take-ball-up')
 pp(pid)
 paths.append(pid)
 
-pid1, pid2, q4, q5 = generatePath(q3, 'take-ball-away', 'approach-ground', q_goal)
+pid1, pid2, q4, q5 = generatePathTwoEdges(q3, 'take-ball-away', 'approach-ground', q_goal)
 pp(pid1);pp(pid2)
 paths.append(pid1, paths.append(pid2))
 
