@@ -1,4 +1,5 @@
 from grasp_ball_in_box import q_init, q_goal, robot, ps, graph
+from manipulation import vf, PathPlayer
 
 success = False
 trial = 0
@@ -14,3 +15,8 @@ while not success:
     paths.append (pid)
     if not res: continue
     success = True
+
+v=vf.createViewer()
+pp=PathPlayer(v)
+for pid in paths:
+    pp(pid)
