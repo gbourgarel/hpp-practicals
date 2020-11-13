@@ -15,8 +15,36 @@ def generatePath(q_from, edgeName):
         if not res: continue
         return pid, q1
 
+v=vf.createViewer()
+pp=PathPlayer(v)
 paths = []
+
 pid, q1 = generatePath(q_init, 'approach-ball')
+pp(pid)
+paths.append(pid)
+
+pid, q2 = generatePath(q1, 'grasp-ball')
+pp(pid)
+paths.append(pid)
+
+pid, q3 = generatePath(q2, 'take-ball-up')
+pp(pid)
+paths.append(pid)
+
+pid, q4 = generatePath(q3, 'take-ball-away')
+pp(pid)
+paths.append(pid)
+
+pid, q5 = generatePath(q4, 'transfer')
+pp(pid)
+paths.append(pid)
+
+pid, q6 = generatePath(q5, 'approach-ground')
+pp(pid)
+paths.append(pid)
+
+pid, q7 = generatePath(q6, 'put-ball-down')
+pp(pid)
 paths.append(pid)
 
 
@@ -35,7 +63,7 @@ paths.append(pid)
 #     if not res: continue
 #     success = True
 
-v=vf.createViewer()
-pp=PathPlayer(v)
-for pid in paths:
-    pp(pid)
+# v=vf.createViewer()
+# pp=PathPlayer(v)
+# for pid in paths:
+#     pp(pid)
