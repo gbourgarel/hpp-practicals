@@ -57,15 +57,15 @@ pid1, pid2, q4, q5 = generatePathTwoEdges(q3, 'take-ball-away', 'approach-ground
 pp(pid1);pp(pid2)
 paths.append(pid1), paths.append(pid2)
 
-pid, q6 = generatePath(q5, 'put-ball-down')
+pid, q6 = generatePath(q5, 'put-ball-down', q_goal)
 pp(pid)
 paths.append(pid)
 
-pid, q7 = generatePath(q6, 'move-gripper-up')
+pid, q7 = generatePath(q6, 'move-gripper-up', q_goal)
 pp(pid)
 paths.append(pid)
 
-pid, q8 = generatePath(q7, 'move-gripper-away')
+pid, q8 = generatePath(q7, 'move-gripper-away', q_goal)
 pp(pid)
 paths.append(pid)
 
