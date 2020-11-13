@@ -6,10 +6,8 @@ def generatePath(q_from, edgeName, q=None):
     while True:
         print('trial {0}'.format(trial))
         trial += 1
-        if q==None:
-            print('ok')
-            q = robot.shootRandomConfig()
-        res, q1, err = graph.generateTargetConfig(edgeName, q_from, q)
+        q_ = q if q is not None else robot.shootRandomConfig()
+        res, q1, err = graph.generateTargetConfig(edgeName, q_from, q_)
         if not res: continue
         res, msg = robot.isConfigValid(q1)
         if not res: continue
