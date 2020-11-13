@@ -33,7 +33,7 @@ def generatePathTwoEdges(q_from, edgeName1, edgeName2, q):
         if not res:
             print(3)
             continue
-        res, q2, err = graph.generateTargetConfig(edgeName1, q1, q)
+        res, q2, err = graph.generateTargetConfig(edgeName2, q1, q)
         if not res:
             print(4)
             continue
