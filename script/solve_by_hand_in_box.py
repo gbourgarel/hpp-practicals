@@ -42,31 +42,31 @@ pp=PathPlayer(v)
 paths = []
 
 pid, q1 = generatePath(q_init, 'approach-ball')
-pp(pid)
+# pp(pid)
 paths.append(pid)
 
 pid, q2 = generatePath(q1, 'grasp-ball')
-pp(pid)
+# pp(pid)
 paths.append(pid)
 
 pid, q3 = generatePath(q2, 'take-ball-up')
-pp(pid)
+# pp(pid)
 paths.append(pid)
 
 pid1, pid2, q4, q5 = generatePathTwoEdges(q3, 'take-ball-away', 'approach-ground', q_goal)
-pp(pid1);pp(pid2)
+# pp(pid1);pp(pid2)
 paths.append(pid1), paths.append(pid2)
 
 pid, q6 = generatePath(q5, 'put-ball-down', q_goal)
-pp(pid)
+# pp(pid)
 paths.append(pid)
 
 pid, q7 = generatePath(q6, 'move-gripper-up', q_goal)
-pp(pid)
+# pp(pid)
 paths.append(pid)
 
 pid, q8 = generatePath(q7, 'move-gripper-away', q_goal)
-pp(pid)
+# pp(pid)
 paths.append(pid)
 
 # success = False
@@ -84,7 +84,7 @@ paths.append(pid)
 #     if not res: continue
 #     success = True
 
-# v=vf.createViewer()
-# pp=PathPlayer(v)
-# for pid in paths:
-#     pp(pid)
+v=vf.createViewer()
+pp=PathPlayer(v)
+for pid in paths:
+    pp(pid)
