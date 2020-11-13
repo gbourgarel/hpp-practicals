@@ -22,17 +22,29 @@ def generatePathTwoEdges(q_from, edgeName1, edgeName2, q):
         trial += 1
         q_ = robot.shootRandomConfig()
         res, q1, err = graph.generateTargetConfig(edgeName1, q_from, q_)
-        if not res: continue
+        if not res:
+            print(1)
+            continue
         res, msg = robot.isConfigValid(q1)
-        if not res: continue
+        if not res:
+            print(2)
+            continue
         res, pid1, msg = ps.directPath(q_from, q1, True)
-        if not res: continue
+        if not res:
+            print(3)
+            continue
         res, q2, err = graph.generateTargetConfig(edgeName1, q1, q)
-        if not res: continue
+        if not res:
+            print(4)
+            continue
         res, msg = robot.isConfigValid(q2)
-        if not res: continue
+        if not res:
+            print(5)
+            continue
         res, pid2, msg = ps.directPath(q1, q2, True)
-        if not res: continue
+        if not res:
+            print(6)
+            continue
         return pid1, pid2, q1, q2
 
 v=vf.createViewer()
@@ -50,6 +62,10 @@ paths.append(pid)
 pid, q3 = generatePath(q2, 'take-ball-up')
 pp(pid)
 paths.append(pid)
+
+pid1, pid2, q4, q5 = generatePath(q3, 'take-ball-away', 'approach-ground', q_goal)
+pp(pid1);pp(pid2)
+paths.append(pid1, paths.append(pid2))
 
 pid, q4 = generatePath(q3, 'take-ball-away')
 pp(pid)
