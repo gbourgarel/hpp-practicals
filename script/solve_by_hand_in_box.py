@@ -4,7 +4,8 @@ from manipulation import vf, PathPlayer
 def generatePath(q_from, edgeName, q=None):
     trial = 0
     while True:
-        print('trial {0}'.format(trial))
+        if trial % 10 == 0:
+            print('trial {0}'.format(trial))
         trial += 1
         q_ = q if q is not None else robot.shootRandomConfig()
         res, q1, err = graph.generateTargetConfig(edgeName, q_from, q_)
